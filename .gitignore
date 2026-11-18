@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Streamlit & lokal
+progress.json
+.streamlit/secrets.toml
+
+# OS
+.DS_Store
+Thumbs.db
