@@ -44,6 +44,34 @@ indonesia_mbg_nationwide_enriched_2026.csv
 UASPengPol.ipynb                # notebook analisis (EDA + modeling)
 ```
 
+## Deploy ke internet (Streamlit Community Cloud)
+
+Gratis dan permanen, URL berakhiran `*.streamlit.app`.
+
+1. **Buat repo GitHub kosong** di <https://github.com/new>
+   - Nama bebas, misal `mbg-insight`
+   - Visibilitas **Public**
+   - **Jangan** centang "Add a README file", ".gitignore", atau "license" (harus benar-benar kosong)
+2. **Push kode** dari folder proyek ini:
+   ```bash
+   git remote add origin https://github.com/USERNAME/mbg-insight.git
+   git push -u origin main
+   ```
+   Push pertama akan membuka browser untuk login GitHub — cukup izinkan sekali.
+3. **Deploy** di <https://share.streamlit.io>
+   - Sign in with GitHub
+   - **New app** → pilih repo `mbg-insight`, branch `main`, **Main file path: `app.py`**
+   - **Advanced settings** → pilih **Python 3.12**
+   - **Deploy** — proses build pertama ± 2–4 menit
+4. URL final: `https://USERNAME-mbg-insight.streamlit.app` → bagikan ke teman-teman.
+
+### Catatan hosting
+
+- File CSV 17 MB ikut ter-upload, jadi tidak perlu database.
+- Tab **Progress** memakai `st.session_state` saat online (penyimpanan file di cloud
+  bersifat sementara), sehingga progres tidak bertahan setelah app restart.
+- Dataset tidak berubah, jadi model tidak perlu dilatih ulang saat deploy.
+
 ## Catatan penting untuk presentasi
 
 Dataset ini **sintetis dan deterministik**: label `primary_food_waste_driver` hampir
